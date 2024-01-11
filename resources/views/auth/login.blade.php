@@ -112,7 +112,7 @@
             <div>
               {{-- <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo2.png" alt="looginpage"></a></div> --}}
               <div class="login-main ">
-                  <h4 class="text-left">Hello again!</h4>
+                  <h4 class="text-left">Hello again! admin</h4>
                   {{-- <p class="text-center">Enter your email & password to login</p> --}}
                   <form method="POST" action="{{ route('login') }}">
                         @csrf
