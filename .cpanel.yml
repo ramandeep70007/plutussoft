@@ -1,24 +1,10 @@
 deployment:
   tasks:
-    - export COMMON_DEPLOYPATH=/home/qfwz8ujazq4o/public_html/
-    - export MAIN_DEPLOYPATH=$COMMON_DEPLOYPATH
-    - export DEVELOPMENT_DEPLOYPATH=$COMMON_DEPLOYPATH/development.milliondox.com/
-
-    # Common tasks for both branches
-    - /bin/cp -R .vscode $COMMON_DEPLOYPATH
-    - /bin/cp -R assets $COMMON_DEPLOYPATH
-    - /bin/cp -R css $COMMON_DEPLOYPATH
-    - /bin/cp -R fonts $COMMON_DEPLOYPATH
-    - /bin/cp -R img $COMMON_DEPLOYPATH
-    - /bin/cp -R js $COMMON_DEPLOYPATH
-
-    # Branch-specific tasks
-    - if [ "$CPANEL_BRANCH" == "main" ]; then
-        /bin/cp index.html $MAIN_DEPLOYPATH
-        # Add other main branch specific tasks here
-      fi
-
-    - if [ "$CPANEL_BRANCH" == "development" ]; then
-        /bin/cp index.html $DEVELOPMENT_DEPLOYPATH
-        # Add other development branch specific tasks here
-      fi
+    - export COMMON_DEPLOYPATH=/home/qfwz8ujazq4o/public_html/development.milliondox.com/
+    - /bin/cp -R .vscode $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R fonts $DEPLOYPATH
+    - /bin/cp -R img $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    /bin/cp index.html $DEPLOYPATH
