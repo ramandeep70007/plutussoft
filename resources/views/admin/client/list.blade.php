@@ -33,9 +33,7 @@
 
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
     
@@ -367,18 +365,18 @@
                                     </table>
 <script>
     $(document).ready(function () {
-        // Find all <td> elements with the class "break-after-two-words"
+       
         $('.break-after-two-words').each(function () {
-            // Get the text content of the <td> element
+            
             var text = $(this).text();
-            // Split the text into words
+           
             var words = text.split(' ');
-            // Create an array to store groups of two words
+           
             var groups = [];
             for (var i = 0; i < words.length; i += 2) {
                 groups.push(words.slice(i, i + 2).join(' '));
             }
-            // Join the groups with line breaks and set it as the new content of the <td> element
+            
             $(this).html(groups.join('<br>'));
         });
     });
@@ -406,7 +404,7 @@
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fa fa-download"></i> Download As CSV', // Custom HTML content
+                text: '<i class="fa fa-download"></i> Download As CSV', 
             }
         ]
         });
@@ -417,7 +415,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Zero Configuration  Ends-->
+                   
 
                 </div>
             </div>
@@ -431,9 +429,7 @@
         @include('admin.includes.footer');
     </div>
 </div>
-<!-- latest jquery-->
-<!-- <script src="/../assets/js/jquery-3.6.0.min.js"></script> -->
-<!-- Bootstrap js-->
+
 <script src="/../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 
 <script src="/../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -444,8 +440,7 @@
  
 <script src="/../assets/js/config.js"></script>
 <script src="/../assets/js/sidebar-menu.js"></script>
-<!-- <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>-->
-<!--<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script> -->
+
 <script src="/../assets/js/tooltip-init.js"></script>
 
 <script src="/../assets/js/notify/bootstrap-notify.min.js"></script>
@@ -465,7 +460,7 @@
             text: '{{ session('success') }}',
             icon: 'success',
         }).then(() => {
-            window.location.href = '/admin/clients'; // Redirect after clicking OK
+            window.location.href = '/admin/clients'; 
         });
     @endif
 </script>
@@ -494,7 +489,7 @@ tr.odd {
 tr.even {
     font-size: 14px !important;
 }
-</style
+</style>
 <!-- login js-->
 </body>
 

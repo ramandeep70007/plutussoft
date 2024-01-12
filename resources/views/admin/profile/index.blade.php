@@ -106,9 +106,9 @@
 </div>
 <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>

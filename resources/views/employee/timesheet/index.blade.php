@@ -44,9 +44,7 @@
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
     <!-- App css-->
@@ -153,9 +151,9 @@
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -242,25 +240,25 @@
                    <label for="clientSelect">Date of Work:</label>
                    <input type="text"  name="date_of_work" id="date_of_work" class="form-control" required><br>
                  <script>
-    // Get the current date
+    
     const currentDate = new Date();
 
-    // Calculate the start of the current week (Monday)
+   
     const currentWeekStart = new Date(currentDate);
     const dayOfWeek = currentDate.getDay();
     currentWeekStart.setDate(currentDate.getDate() - (dayOfWeek - 1 + 7) % 7);
 
-    // Calculate the end of the current week (Sunday)
+    
     const currentWeekEnd = new Date(currentWeekStart);
     currentWeekEnd.setDate(currentWeekStart.getDate() + 6);
 
-    // Initialize Flatpickr for Tenure Start Date
+    
     flatpickr("#date_of_work", {
-        dateFormat: "Y-m-d", // Set the date format to match the server-side format
-        // minDate: currentWeekStart,
+        dateFormat: "Y-m-d", 
+        
         maxDate: currentWeekEnd,
         locale: {
-            firstDayOfWeek: 1 // Set Monday as the first day of the week
+            firstDayOfWeek: 1 
         }
     });
 
@@ -398,7 +396,7 @@
     wordCount.textContent = `${words} words`;
 
     if (words > wordLimit) {
-      // Split the text content of the textarea and slice it to the word limit.
+      
       textarea.textContent = textarea.textContent
         .split(/\s+/)
         .slice(0, wordLimit)
@@ -422,32 +420,31 @@
 @endforeach
 
 <script>
-// Function to initialize the date input for the current week
+
 function initializeDateInput(element) {
     const currentDate = new Date();
-    const dayOfWeek = currentDate.getDay(); // 0 for Sunday, 1 for Monday, etc.
+    const dayOfWeek = currentDate.getDay(); 
     
-    // Calculate the start of the current week (Monday)
+    
     const currentWeekStart = new Date(currentDate);
     currentWeekStart.setDate(currentDate.getDate() - (dayOfWeek - 1 + 7) % 7);
     
-    // Calculate the end of the current week (Sunday)
+   
     const currentWeekEnd = new Date(currentWeekStart);
     currentWeekEnd.setDate(currentWeekStart.getDate() + 6);
     
-    // Format the start and end dates to yyyy-mm-dd
+    
     const startDateFormatted = currentWeekStart.toISOString().slice(0, 10);
     const endDateFormatted = currentWeekEnd.toISOString().slice(0, 10);
     
-    // Set the min and max attributes of the date input
-    // element.min = startDateFormatted;
+   
     element.max = endDateFormatted;
 }
 
-// Get all date input elements by class or other means
+
 const dateInputs = document.querySelectorAll('input[type="date"]');
 
-// Initialize each date input element
+
 dateInputs.forEach(function(input) {
     initializeDateInput(input);
 });
@@ -455,7 +452,7 @@ dateInputs.forEach(function(input) {
 
 
 <script>
-    // Function to open the modal when the edit button is clicked
+    
     function openModal(employeeId) {
         $('#statustimeModal' + employeeId).modal('show');
     }
@@ -475,7 +472,7 @@ dateInputs.forEach(function(input) {
                     },
                     text: '<i class="fa fa-download"></i> Download As Excel',
                     filename: function () {
-                        // Check if there is any filter applied
+                        
                         if (table && table.search()) {
                             return selectedEmployeeNames.join('_') + '_time_sheet_file';
                         } else {
@@ -487,7 +484,7 @@ dateInputs.forEach(function(input) {
                     extend: 'csvHtml5',
                     text: '<i class="fa fa-download"></i> Download As CSV',
                     filename: function () {
-                        // Check if there is any filter applied
+                        
                         if (table && table.search()) {
                             return selectedEmployeeNames.join('_') + '_time_sheet_file';
                         } else {
@@ -498,16 +495,16 @@ dateInputs.forEach(function(input) {
             ]
         });
 
-        // Listen for the DataTables draw event to update selectedEmployeeNames
+       
         table.on('draw.dt', function () {
-            // Extract unique employee names from the filtered data
+            
             var uniqueEmployeeNames = table
-                .column(1, { search: 'applied' }) // Assuming 'Employee Name' is the first column (index 0)
+                .column(1, { search: 'applied' }) 
                 .data()
                 .unique()
                 .toArray();
 
-            // Update selectedEmployeeNames
+            
             selectedEmployeeNames = uniqueEmployeeNames;
         });
     });
@@ -524,9 +521,7 @@ dateInputs.forEach(function(input) {
         @include('employee.includes.footer')
       </div>
     </div>
-    <!-- latest jquery-->
-    <!--<script src="../assets/js/jquery-3.6.0.min.js"></script>-->
-    <!-- Bootstrap js-->
+   
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <!-- feather icon js-->
     <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -542,8 +537,7 @@ dateInputs.forEach(function(input) {
 
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js">  </script>
-<!--    <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>-->
-<!--<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script>-->
+
 <script src="/../assets/js/sweet-alert/sweetalert.min.js"></script>
 <script src="/../assets/js/sweet-alert/app.js"></script>
 
@@ -566,16 +560,16 @@ dateInputs.forEach(function(input) {
     </div>
 @endif
 <script>
-    // Check if there's a message in the session (set by the controller)
+    
     var message = "{{ Session::get('message') }}";
 
-    // Display SweetAlert popup if a message is available
+    
     if (message) {
         Swal.fire({
-            icon: message.includes('successfully') ? 'success' : 'error', // Use 'success' or 'error' icon based on the message content
+            icon: message.includes('successfully') ? 'success' : 'error', 
             title: message,
             showConfirmButton: false,
-            timer: 2000 // Set the popup to close after 2 seconds (adjust as needed)
+            timer: 2000 
         });
     }
 </script>

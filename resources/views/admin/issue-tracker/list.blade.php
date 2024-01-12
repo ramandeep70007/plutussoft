@@ -26,7 +26,7 @@
 
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 
@@ -98,9 +98,9 @@
 </div>
 <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -237,7 +237,7 @@
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fa fa-download"></i> Download As CSV', // Custom HTML content
+                text: '<i class="fa fa-download"></i> Download As CSV', 
             }
         ]
         });
@@ -299,7 +299,7 @@
 
                             } else {
 
-                                //do nothing
+                                
 
                             }
                         })
@@ -312,9 +312,7 @@
         @include('user/includes.footer');
     </div>
 </div>
-<!-- latest jquery-->
-<!-- <script src="/../assets/js/jquery-3.6.0.min.js"></script> -->
-<!-- Bootstrap js-->
+
 <script src="/../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
 <script src="/../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -325,8 +323,7 @@
 <!-- Sidebar jquery-->
 <script src="/../assets/js/config.js"></script>
 <script src="/../assets/js/sidebar-menu.js"></script>
-<!-- <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script> -->
+
 <script src="/../assets/js/tooltip-init.js"></script>
 
 <script src="/../assets/js/notify/bootstrap-notify.min.js"></script>
@@ -357,7 +354,7 @@ a.dt-button.buttons-excel.buttons-html5 {
     border: none;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
-</style
+</style>
 <!-- login js-->
 </body>
 

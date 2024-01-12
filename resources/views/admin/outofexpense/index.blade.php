@@ -46,9 +46,7 @@
 
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
 <style>
@@ -122,9 +120,9 @@
 </div>
 <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -236,7 +234,7 @@
                                                         <td>
                                                             @if($cli->attach_supporting_documents)
                    
-                    <!--<a href="{{ asset('/' . $cli->attach_supporting_documents) }}" download>Download Now</a>-->
+                   
                                 <a href="{{ route('download-ope-file', ['id' => $cli->id, 'employeeName' => $cli->employee_name ]) }}">
                 <i class="icon-download"></i>
             </a>
@@ -328,7 +326,7 @@
 </div>
 @endforeach
 <script>
-    // Function to open the modal when the edit button is clicked
+    
     function openModal(employeeId) {
         $('#statusModal' + employeeId).modal('show');
     }
@@ -348,7 +346,7 @@ $(document).ready(function () {
                 },
                 text: '<i class="fa fa-download"></i> Download As Excel',
                 filename: function () {
-                    // Check if there is any filter applied
+                    
                     if (dataTable && dataTable.search()) {
                         return selectedEmployeeNames.join('_') + '_ope_file';
                     } else {
@@ -360,7 +358,7 @@ $(document).ready(function () {
                 extend: 'csvHtml5',
                 text: '<i class="fa fa-download"></i> Download As CSV',
                 filename: function () {
-                    // Check if there is any filter applied
+                    
                     if (dataTable && dataTable.search()) {
                         return selectedEmployeeNames.join('_') + '_ope_file';
                     } else {
@@ -371,16 +369,16 @@ $(document).ready(function () {
         ]
     });
 
-    // Listen for the DataTables draw event to update selectedEmployeeNames
+    
     dataTable.on('draw.dt', function () {
-        // Extract unique employee names from the filtered data
+       
         var uniqueEmployeeNames = dataTable
-            .column(1, { search: 'applied' }) // Assuming 'Employee Name' is the second column (index 1)
+            .column(1, { search: 'applied' }) 
             .data()
             .unique()
             .toArray();
 
-        // Update selectedEmployeeNames
+       
         selectedEmployeeNames = uniqueEmployeeNames;
     });
 });
@@ -404,9 +402,7 @@ $(document).ready(function () {
         @include('employee.includes.footer')
       </div>
     </div>
-    <!-- latest jquery-->
-    <!--<script src="../assets/js/jquery-3.6.0.min.js"></script>-->
-    <!-- Bootstrap js-->
+    
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <!-- feather icon js-->
     <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -422,8 +418,7 @@ $(document).ready(function () {
 
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js">  </script>
-<!--    <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>-->
-<!--<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script>-->
+
 <script>
     @if(session('success'))
         Swal.fire({
@@ -431,7 +426,7 @@ $(document).ready(function () {
             text: '{{ session('success') }}',
             icon: 'success',
         }).then(() => {
-            window.location.href = '/admin/outofexpense'; // Redirect after clicking OK
+            window.location.href = '/admin/outofexpense'; 
         });
     @endif
 </script>

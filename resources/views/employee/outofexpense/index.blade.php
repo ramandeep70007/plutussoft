@@ -49,9 +49,7 @@
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
 <style>
@@ -148,9 +146,9 @@
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -306,11 +304,7 @@
 </div>
 <br>
 <div class="row">
-    <!--<div class="col-lg-6">-->
-    <!--                   <label for="clientSelect">Date of Submission Expense:</label>-->
-    <!--                <input type="datetime-local"  name="date_of_submission_expense" id="date_of_submission_expense" required class="form-control">-->
-                       
-    <!--               </div>-->
+    
     <div class="col-lg-12">
          <button type="submit" class="btn btn-primary btn-sm pull-right" style="border-radius:5px;"> Add</button>
                     </form>
@@ -381,15 +375,7 @@
                                                         <td>{{$cli->admin_update}}</td>
                                                         <td> <ul class="action">
                                                     <li class="edit"> <a href="#"><i class="icon-pencil-alt text-primary" onclick="openModal({{$cli->id}})"></i></a></li>
-                                                    <!-- <li class="delete" id="delete-{{ $cli->id }}">-->
-                                                    <!--    <form method="POST" action="{{ route('ope.delete', ['id' => $cli->id]) }}">-->
-                                                    <!--        @csrf-->
-                                                    <!--        @method('DELETE')-->
-                                                    <!--        <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this record?')">-->
-                                                    <!--            <i class="icon-trash"></i>-->
-                                                    <!--        </button>-->
-                                                    <!--    </form>-->
-                                                    <!--</li>-->
+                                                    
                                                    
                                             </ul></td>
                                                         
@@ -473,8 +459,7 @@
                 @else
                     <p>No Documents available.</p>
                 @endif <br>
-                <!--<label for="clientSelect">Date of Submission Expense:</label>-->
-                               <!--<input type="datetime-local"  name="date_of_submission_expense" id="date_of_submission_expense" value="{{$cli->date_of_submission_expense}}" required class="form-control">-->
+               
                                <input type="hidden" class="form-control mt-2" name="created_at"  id="created_at" value="{{$cli->created_at}}" >
                               <input type="hidden" class="form-control mt-2" name="emp_id"  id="emp_id" value="{{$cli->id}}" placeholder="Add your remarks">
             </div>
@@ -488,7 +473,7 @@
 </div>
 @endforeach
 <script>
-    // Function to open the modal when the edit button is clicked
+    
     function openModal(employeeId) {
         $('#statusModal' + employeeId).modal('show');
     }
@@ -516,7 +501,7 @@ $(document).ready(function () {
                 },
                 text: '<i class="fa fa-download"></i> Download As Excel',
                 filename: function () {
-                    // Check if there is any filter applied
+                    
                     if (dataTable && dataTable.search()) {
                         return selectedEmployeeNames.join('_') + '_ope_file';
                     } else {
@@ -528,7 +513,7 @@ $(document).ready(function () {
                 extend: 'csvHtml5',
                 text: '<i class="fa fa-download"></i> Download As CSV',
                 filename: function () {
-                    // Check if there is any filter applied
+                    
                     if (dataTable && dataTable.search()) {
                         return selectedEmployeeNames.join('_') + '_ope_file';
                     } else {
@@ -539,17 +524,17 @@ $(document).ready(function () {
         ]
     });
 
-    // Listen for the DataTables draw event to update selectedEmployeeNames
+    
     $('#basic11111').DataTable().on('draw.dt', function () {
-        // Extract unique employee names from the filtered data
+        
         var uniqueEmployeeNames = $('#basic11111')
             .DataTable()
-            .column(1, { search: 'applied' }) // Assuming 'Employee Name' is the second column (index 1)
+            .column(1, { search: 'applied' }) 
             .data()
             .unique()
             .toArray();
 
-        // Update selectedEmployeeNames
+        
         selectedEmployeeNames = uniqueEmployeeNames;
     });
 });
@@ -566,9 +551,7 @@ $(document).ready(function () {
         @include('employee.includes.footer')
       </div>
     </div>
-    <!-- latest jquery-->
-    <!--<script src="../assets/js/jquery-3.6.0.min.js"></script>-->
-    <!-- Bootstrap js-->
+    
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <!-- feather icon js-->
     <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -584,8 +567,7 @@ $(document).ready(function () {
 
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js">  </script>
-<!--    <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>-->
-<!--<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script>-->
+
 <script>
     @if(session('success'))
         Swal.fire({
@@ -593,7 +575,7 @@ $(document).ready(function () {
             text: '{{ session('success') }}',
             icon: 'success',
         }).then(() => {
-            window.location.href = '/employee/outofexpense'; // Redirect after clicking OK
+            window.location.href = '/employee/outofexpense'; 
         });
     @endif
 </script>

@@ -99,9 +99,9 @@
 </div>
 <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -226,14 +226,14 @@
                           </div>
 
                                                       <script>
-                                                      // Wait for the document to be fully loaded
+                                                      
                                                       document.addEventListener('DOMContentLoaded', function () {
-                                                      // Find the "Close" button with the "reload" class
+                                                      
                                                       var reloadButton = document.querySelector('.modal-footer .reload');
 
-                                                      // Add a click event listener to the button
+                                                     
                                                       reloadButton.addEventListener('click', function () {
-                                                      // Reload the page
+                                                      
                                                       location.reload();
                                                       });
                                                       });
@@ -281,27 +281,27 @@
  document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            // ... other FullCalendar options ...
+            
         });
 
-        // Get the month selection dropdown
+        
         var monthSelect = document.getElementById('month-select');
 
-        // Function to update the calendar when the month dropdown changes
+        
         function updateCalendarMonth() {
             var selectedMonth = monthSelect.value;
             if (selectedMonth) {
-                // Change the calendar view to the selected month
+               
                 calendar.gotoDate(selectedMonth);
             }
         }
 
-        // Add an event listener to the month selection dropdown
+       
         monthSelect.addEventListener('change', updateCalendarMonth);
 
-        // Populate the month dropdown with options for the next 6 months in the future
+       
         var currentDate = new Date();
-        for (var i = -24; i < 24; i++) { // Show 6 months in the future
+        for (var i = -24; i < 24; i++) { 
             var nextMonth = new Date(currentDate);
             nextMonth.setMonth(currentDate.getMonth() + i);
             var monthOption = document.createElement('option');
@@ -310,53 +310,53 @@
             monthSelect.appendChild(monthOption);
         }
 
-        // Set the default selected option to the current month
+        
         var currentMonthOption = document.querySelector('option[value="' + currentDate.toISOString() + '"]');
         if (currentMonthOption) {
             currentMonthOption.selected = true;
         }
 
-        // Trigger the change event on page load to set the initial calendar month
+        
         updateCalendarMonth();
 
-        // Get the client selection dropdown
+        
         var clientSelect = document.getElementById('clientSelect');
 
-        // Add an event listener to the client selection dropdown
+        
         clientSelect.addEventListener('change', function () {
             var selectedClientId = this.value;
             if (selectedClientId) {
-                // Filter events based on the selected client
+                
                 var filteredEvents = {!! json_encode($calendarEvents) !!}.filter(function (event) {
                     return event.client_id == selectedClientId;
                 });
-                // Set the filtered events as the calendar's event source
+                
                 calendar.removeAllEvents();
                 calendar.addEventSource(filteredEvents);
             } else {
-                // If no client is selected, reset the calendar to show all events
+               
                 calendar.removeAllEvents();
                 calendar.addEventSource({!! json_encode($calendarEvents) !!});
             }
-            // Render the calendar
+           
             calendar.render();
         });
 
-        // Trigger the change event on page load to filter events based on the default selection
+
         var defaultSelectedClientId = clientSelect.value;
         if (defaultSelectedClientId) {
             var changeEvent = new Event('change');
             clientSelect.dispatchEvent(changeEvent);
         }
 
-        // Event click handler to display event details in a modal
+       
         calendar.setOption('eventClick', function (info) {
             var event = info.event;
             var eventDetails = "Title: " + event.title + "<br>" +
                 "Start: " + event.start.toLocaleDateString() + "<br>" +
                 "Description: " + event.extendedProps.description;
 
-            // Use Bootstrap's Modal to display the popup
+            
             $('#event-details-modal .modal-body').html(eventDetails);
             $('#event-details-modal').modal('show');
         });
@@ -365,39 +365,39 @@
       
         var filteredCalendarEvents = [];
 
-// Event listener for the "Export CSV" button
+
 document.getElementById('export-csv').addEventListener('click', function () {
-    // Check if a client is selected
+    
     var selectedClientId = clientSelect.value;
     if (selectedClientId) {
-        // Filter events based on the selected client
+        
         filteredCalendarEvents = calendarEvents.filter(function (event) {
             return event.client_id == selectedClientId;
         });
 
-        // Check if there are filtered events to export
+        
         if (filteredCalendarEvents.length > 0) {
-            // Convert filteredCalendarEvents to CSV format
+            
             var csvContent = 'data:text/csv;charset=utf-8,';
-            csvContent += 'Title,Start,Description,Client ID,Employee ID\n'; // CSV header
+            csvContent += 'Title,Start,Description,Client ID,Employee ID\n'; 
 
             filteredCalendarEvents.forEach(function (event) {
                 csvContent += `${event.title},${event.start},${event.description},${event.client_id},${event.employee_id}\n`;
             });
 
-            // Create a Blob containing the CSV data and trigger the download
+            
             var encodedUri = encodeURI(csvContent);
             var link = document.createElement('a');
             link.setAttribute('href', encodedUri);
             link.setAttribute('download', 'calendar_events.csv');
-            document.body.appendChild(link); // Required for Firefox
+            document.body.appendChild(link); 
             link.click();
         } else {
-            // No events for the selected client
+            
             alert('No events found for the selected client.');
         }
     } else {
-        // No client selected
+       
         alert('Please select a client to export events.');
     }
 });

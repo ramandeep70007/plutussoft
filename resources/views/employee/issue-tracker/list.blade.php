@@ -78,9 +78,9 @@
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc;
         padding: 5px;
     }
 </style>
@@ -171,14 +171,14 @@
                                                         @endforeach
                                                         <input type="text" placeholder="Issue Date" name="issue_date" id="issue_date" class="form-control mt-2" required>
                                                         <script>
-                                                            // Calculate today's date
+                                                            
                                                             const today = new Date();
                                                             const todayFormatted = today.getFullYear() + "-" + (today.getMonth() + 1).toString().padStart(2, '0') + "-" + today.getDate().toString().padStart(2, '0');
 
-                                                            // Initialize Flatpickr for Tenure Start Date
+                                                           
                                                             flatpickr("#issue_date", {
-                                                                dateFormat: "Y-m-d", // Set the date format to match the server-side format
-                                                                minDate: todayFormatted, // Set the minimum selectable date to today
+                                                                dateFormat: "Y-m-d", 
+                                                                minDate: todayFormatted, 
                                                             });
 
                                                            
@@ -311,7 +311,7 @@
 
                             } else {
 
-                                //do nothing
+                               
 
                             }
                         })

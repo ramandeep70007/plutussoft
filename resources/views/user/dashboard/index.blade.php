@@ -112,9 +112,9 @@ a:hover{
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -227,15 +227,11 @@ a:hover{
                                 <option value="Premium" {{ $user->plan_type === 'Premium' ? ' selected' : '' }}>Premium</option>
                               </select>
 
-<!--                              <input type="text" class="form-control mt-2" id="tenure_start_date" name="tenure_start_date" value="{{$user->tenure_start_date}}" placeholder="Tenure start date">-->
 
-<!--<input type="text" class="form-control mt-2" id="tenure_end_date" name="tenure_end_date" placeholder="Tenure end date" value="{{$user->tenure_end_date}}">-->
 
 <input type="text" class="form-control mt-2" name="authorised_signatory_name" id="authorised_signatory_name" value="{{$user->authorised_signatory_name}}" placeholder="Authorised Signatory Name">
 
-<!--<input type="text" class="form-control mt-2" name="authorised_signatory_contact_no" id="authorised_signatory_contact_no" value="{{$user->authorised_signatory_contact_no}}" placeholder="Authorised Signatory contact no">-->
 
-<!--<input type="email" class="form-control mt-2" name="authorised_signatory_email_id" id="authorised_signatory_email_id" value="{{$user->authorised_signatory_email_id}}" placeholder="Authorised Signatory email id">-->
                                         
                                         <input type="file" class="form-control mt-2" name="profile_picture" id="profile_picture">
                           

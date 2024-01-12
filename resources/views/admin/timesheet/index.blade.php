@@ -35,7 +35,6 @@
 
 
 
-    <!-- <script src="https://code.jquery.com/jquery-1.12.3.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
@@ -48,12 +47,7 @@
 
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
-<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
-    <!-- <script src="https://cdn.datatables.net/1.11.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.colVis.min.js"></script> -->
+
   </head>
   <body>
     <!-- tap on top starts-->
@@ -121,9 +115,9 @@
 </div>
 <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -263,7 +257,7 @@
                     },
                     text: '<i class="fa fa-download"></i> Download As Excel',
                     filename: function () {
-                        // Check if there is any filter applied
+                        
                         if (table && table.search()) {
                             return selectedEmployeeNames.join('_') + '_time_sheet_file';
                         } else {
@@ -275,7 +269,7 @@
                     extend: 'csvHtml5',
                     text: '<i class="fa fa-download"></i> Download As CSV',
                     filename: function () {
-                        // Check if there is any filter applied
+                        
                         if (table && table.search()) {
                             return selectedEmployeeNames.join('_') + '_time_sheet_file';
                         } else {
@@ -286,13 +280,13 @@
             ]
         });
 
-        // Event listener for employeeFilter dropdown
+        
         $('#employeeFilter').on('change', function () {
             var selectedEmployee = $(this).val();
             table.column(0).search(selectedEmployee).draw();
         });
 
-        // Event listener for clientFilter dropdown
+        
         $('#clientFilter').on('change', function () {
             var selectedClient = $(this).val();
             table.column(1).search(selectedClient).draw();
@@ -311,9 +305,7 @@
         @include('user/includes.footer')
       </div>
     </div>
-    <!-- latest jquery-->
-    <!-- <script src="../assets/js/jquery-3.6.0.min.js"></script> -->
-    <!-- Bootstrap js-->
+    
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <!-- feather icon js-->
     <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -331,17 +323,9 @@
     <script src="../assets/js/theme-customizer/customizer.js">  </script>
     <!-- login js-->
   
-    <!-- <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script> -->
-
-<!-- Include jQuery -->
-<!-- Include jQuery -->
-<!-- Include jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Include DataTables and DataTables CSS -->
+    
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> -->
+
 
 
 <style>
@@ -363,7 +347,7 @@ background: transparent;
     border: none;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
-</style
+</style>
 
 
   </body>

@@ -83,9 +83,9 @@
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -299,7 +299,7 @@
 </div>
 @endforeach
 <script>
-    // Function to open the modal when the edit button is clicked
+    
     function openModal(employeeId) {
         $('#statusempclientModal' + employeeId).modal('show');
     }
@@ -349,7 +349,7 @@
 
                             } else {
 
-                                //do nothing
+                                
 
                             }
                         })
@@ -396,7 +396,7 @@
             text: '{{ session('success') }}',
             icon: 'success',
         }).then(() => {
-            window.location.href = '/employee/client'; // Redirect after clicking OK
+            window.location.href = '/employee/client'; 
         });
     @endif
 </script>

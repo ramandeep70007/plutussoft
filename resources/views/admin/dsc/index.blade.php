@@ -42,9 +42,7 @@
 
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
 </head>
@@ -231,8 +229,8 @@
                                                 
                                                 </select><br>
                                                  <label for="clientSelect">Mobile No:</label>
-<input type="text" class="form-control mt-2" name="mobile_no" id="mobile_no" placeholder="Mobile No" ><br>
-<label for="clientSelect">Email:</label>
+                                        <input type="text" class="form-control mt-2" name="mobile_no" id="mobile_no" placeholder="Mobile No" ><br>
+                                        <label for="clientSelect">Email:</label>
                                         <input type="email" class="form-control mt-2" name="email" id="email" placeholder="Email" ><br>
                                         <label for="clientSelect">Father Name:</label>
                                         <input type="text" class="form-control mt-2" name="father_name" id="father_name" placeholder="Father Name" ><br>
@@ -254,19 +252,19 @@
                                                 </select>
                                         </div>
                                         <script>
-                                            // Calculate today's date
+                                           
                                             const today = new Date();
                                             const todayFormatted = today.getFullYear() + "-" + (today.getMonth() + 1).toString().padStart(2, '0') + "-" + today.getDate().toString().padStart(2, '0');
 
-                                            // Initialize Flatpickr for Tenure Start Date
+                                            
                                             flatpickr("#valid_from", {
-                                                dateFormat: "Y-m-d", // Set the date format to match the server-side format
-                                               // Set the minimum selectable date to today
+                                                dateFormat: "Y-m-d",
+                                              
                                             });
 
                                             flatpickr("#valid_till", {
-                                                dateFormat: "Y-m-d", // Set the date format to match the server-side format
-                                               // Set the minimum selectable date to today
+                                                dateFormat: "Y-m-d", 
+                                               
                                             });
                                             
                                         </script>
@@ -308,38 +306,38 @@
                                         <tbody>
                                         @foreach($dataModels as $dsc)
 
-<tr>
+                                        <tr>
 
-<td value="{{$dsc->id}}">{{$dsc->name}}</td>
-<td value="{{$dsc->Nonclient}}">{{$dsc->Nonclient}}</td>
-<td value="{{$dsc->directorname}}">{{$dsc->directorname}}</td>
-<td value="{{$dsc->father_name}}">{{$dsc->father_name}}</td>
-<td value="{{$dsc->email}}">{{$dsc->email}}</td>
-<td value="{{$dsc->mobile_no}}">{{$dsc->mobile_no}}</td>
-<td value="{{$dsc->din_number}}">{{$dsc->din_number}}</td>
+                                        <td value="{{$dsc->id}}">{{$dsc->name}}</td>
+                                        <td value="{{$dsc->Nonclient}}">{{$dsc->Nonclient}}</td>
+                                        <td value="{{$dsc->directorname}}">{{$dsc->directorname}}</td>
+                                        <td value="{{$dsc->father_name}}">{{$dsc->father_name}}</td>
+                                        <td value="{{$dsc->email}}">{{$dsc->email}}</td>
+                                        <td value="{{$dsc->mobile_no}}">{{$dsc->mobile_no}}</td>
+                                        <td value="{{$dsc->din_number}}">{{$dsc->din_number}}</td>
 
-<td>{{ \Carbon\Carbon::parse($dsc->valid_from)->format('d-m-Y') }}</td>
-<td>{{ \Carbon\Carbon::parse($dsc->valid_till)->format('d-m-Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($dsc->valid_from)->format('d-m-Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($dsc->valid_till)->format('d-m-Y') }}</td>
 
-<td value="{{$dsc->expiry_status}}">{{$dsc->expiry_status}}</td>
-<td value="{{$dsc->renewal}}">{{$dsc->renewal}}</td>
-<td value="{{$dsc->dsc_location}}">{{$dsc->dsc_location}}</td>
-<td>
-<ul class="action">
- <li class="edit"> <a href="#"><i class="icon-pencil-alt text-primary" onclick="openModal({{$dsc->id}})"></i></a></li>
-                                                        <li class="delete" id="delete-{{ $dsc->id }}">
-                                                        <form method="POST" action="{{ route('dsc.delete', ['id' => $dsc->id]) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this record?')">
-                                                                <i class="icon-trash"></i>
-                                                            </button>
-                                                        </form>
-                                                    </li>
-                                                    
-                                            </ul>
+                                        <td value="{{$dsc->expiry_status}}">{{$dsc->expiry_status}}</td>
+                                        <td value="{{$dsc->renewal}}">{{$dsc->renewal}}</td>
+                                        <td value="{{$dsc->dsc_location}}">{{$dsc->dsc_location}}</td>
+                                        <td>
+                                        <ul class="action">
+                                        <li class="edit"> <a href="#"><i class="icon-pencil-alt text-primary" onclick="openModal({{$dsc->id}})"></i></a></li>
+                                                                                                <li class="delete" id="delete-{{ $dsc->id }}">
+                                                                                                <form method="POST" action="{{ route('dsc.delete', ['id' => $dsc->id]) }}">
+                                                                                                    @csrf
+                                                                                                    @method('DELETE')
+                                                                                                    <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this record?')">
+                                                                                                        <i class="icon-trash"></i>
+                                                                                                    </button>
+                                                                                                </form>
+                                                                                            </li>
+                                                                                            
+                                                                                    </ul>
 
-</td>
+                                        </td>
 
 
                                         
@@ -381,7 +379,7 @@ $(document).ready(function() {
                 },
                 text: '<i class="fa fa-download"></i> Download As Excel',
                 filename: function () {
-                    // Check if there is any filter applied
+                    
                     if (table && table.search()) {
                         return selectedEmployeeNames.join('_') + '_dsc_file';
                     } else {
@@ -393,7 +391,7 @@ $(document).ready(function() {
                 extend: 'csvHtml5',
                 text: '<i class="fa fa-download"></i> Download As CSV',
                 filename: function () {
-                    // Check if there is any filter applied
+                    
                     if (table && table.search()) {
                         return selectedEmployeeNames.join('_') + '_dsc_file';
                     } else {
@@ -404,22 +402,22 @@ $(document).ready(function() {
         ]
     });
 
-    // Listen for the DataTables draw event to update selectedEmployeeNames
+    
     table.on('draw.dt', function () {
-        // Extract unique employee names from the filtered data
+        
         var uniqueEmployeeNames = table
-            .column(0, { search: 'applied' }) // Assuming 'Employee Name' is the second column (index 1)
+            .column(0, { search: 'applied' }) 
             .data()
             .unique()
             .toArray();
 
-        // Update selectedEmployeeNames
+        
         selectedEmployeeNames = uniqueEmployeeNames;
     });
 });
 
 </script>
-                                    <!-- Add Flatpickr library -->
+                                    
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
                                 </div>
@@ -533,7 +531,7 @@ $(document).ready(function() {
 </div>
 @endforeach
 <script>
-    // Function to open the modal when the edit button is clicked
+   
     function openModal(employeeId) {
         $('#statusModal' + employeeId).modal('show');
     }
@@ -542,9 +540,7 @@ $(document).ready(function() {
         @include('admin.includes.footer');
     </div>
 </div>
-<!-- latest jquery-->
-<!-- <script src="/../assets/js/jquery-3.6.0.min.js"></script> -->
-<!-- Bootstrap js-->
+
 <script src="/../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
 <script src="/../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -555,8 +551,7 @@ $(document).ready(function() {
 <!-- Sidebar jquery-->
 <script src="/../assets/js/config.js"></script>
 <script src="/../assets/js/sidebar-menu.js"></script>
-<!-- <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script> -->
+
 <script src="/../assets/js/tooltip-init.js"></script>
 
 <script src="/../assets/js/notify/bootstrap-notify.min.js"></script>
@@ -587,16 +582,16 @@ $(document).ready(function() {
     </div>
 @endif
 <script>
-    // Check if there's a message in the session (set by the controller)
+    
     var message = "{{ Session::get('message') }}";
 
-    // Display SweetAlert popup if a message is available
+    
     if (message) {
         Swal.fire({
-            icon: message.includes('successfully') ? 'success' : 'error', // Use 'success' or 'error' icon based on the message content
+            icon: message.includes('successfully') ? 'success' : 'error', 
             title: message,
             showConfirmButton: false,
-            timer: 2000 // Set the popup to close after 2 seconds (adjust as needed)
+            timer: 2000 
         });
     }
 </script>

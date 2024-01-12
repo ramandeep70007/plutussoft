@@ -53,10 +53,7 @@
     .ab{
         font-weight:500;
     }
-/*    .profilepic {*/
-/*    border: 2px solid black;*/
-/*    border-radius: 50%;*/
-/*}*/
+
 p.noprofile {
     margin-top: 25px;
     text-align: center;
@@ -122,9 +119,9 @@ p.noprofile {
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -233,14 +230,14 @@ p.noprofile {
 
                                         <input type="text" class="form-control mt-2" id="joining_date" name="joining_date" value="{{$userInfo->joining_date}}" placeholder="Joining date">
                                         <script>
-                                            // Calculate today's date
+                                           
                                             const today = new Date();
                                             const todayFormatted = today.getFullYear() + "-" + (today.getMonth() + 1).toString().padStart(2, '0') + "-" + today.getDate().toString().padStart(2, '0');
 
-                                            // Initialize Flatpickr for Tenure Start Date
+                                            
                                             flatpickr("#joining_date", {
-                                                dateFormat: "Y-m-d", // Set the date format to match the server-side format
-                                               // Set the minimum selectable date to today
+                                                dateFormat: "Y-m-d",
+                                               
                                             });
 
                                             
@@ -364,8 +361,7 @@ p.noprofile {
         <tr>
             <td>
                 @if($user->profile_picture)
-                    <!--<img src="{{ asset('/' . $user->profile_picture) }}" class="text-center" style="height: 100px; border-radius: 50%;">-->
-                    <!--<br>-->
+                    
                     <a href="{{ asset('/' . $user->profile_picture) }}" download> <i class="fas fa-download"></i></a>
                 @else
                     <p>No profile picture available.</p>

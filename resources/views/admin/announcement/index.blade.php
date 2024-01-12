@@ -56,9 +56,7 @@
 
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
   </head>
@@ -128,9 +126,9 @@
 </div>
 <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -262,13 +260,12 @@
                                                   @endforeach
                                               </tbody>
                                           </table>
-<!-- Include jQuery -->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
-<!-- Include Bootstrap JavaScript -->
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- Include Bootstrap CSS (for modal styling) -->
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
                                           <script>
@@ -286,7 +283,7 @@
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fa fa-download"></i> Download As CSV', // Custom HTML content
+                text: '<i class="fa fa-download"></i> Download As CSV', 
             }
         ]
         });
@@ -296,13 +293,13 @@
     $(document).ready(function() {
         var announcementIdToDelete;
 
-        // Listen for a click on a delete button with the "delete-button" class
+        
         $('.deletess-button').on('click', function() {
             announcementIdToDelete = $(this).data('announcement-id');
             $('#deleteForm').attr('action', '/announcements/' + announcementIdToDelete);
         });
 
-        // Reset the announcementIdToDelete when the modal is closed
+       
         $('#deleteModal').on('hidden.bs.modal', function() {
             announcementIdToDelete = null;
         });
@@ -391,7 +388,7 @@
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fa fa-download"></i> Download As CSV', // Custom HTML content
+                text: '<i class="fa fa-download"></i> Download As CSV',
             }
         ]
         });
@@ -401,13 +398,13 @@
     $(document).ready(function() {
         var announcementIdToDeleted;
 
-        // Listen for a click on a delete button with the "delete-button" class
+       
         $('.deletessd-button').on('click', function() {
             announcementIdToDeleted = $(this).data('announcements-id');
             $('#deletedForm').attr('action', '/announcementsd/' + announcementIdToDeleted);
         });
 
-        // Reset the announcementIdToDelete when the modal is closed
+      
         $('#deletedModal').on('hidden.bs.modal', function() {
             announcementIdToDelete = null;
         });
@@ -455,10 +452,7 @@
         @include('admin.includes.footer')
       </div>
     </div>
-    <!-- latest jquery-->
-<!-- latest jquery-->
-<!-- <script src="/../assets/js/jquery-3.6.0.min.js"></script> -->
-<!-- Bootstrap js-->
+   
 <script src="/../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
 <script src="/../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -469,8 +463,7 @@
 <!-- Sidebar jquery-->
 <script src="/../assets/js/config.js"></script>
 <script src="/../assets/js/sidebar-menu.js"></script>
-<!-- <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script> -->
+
 <script src="/../assets/js/tooltip-init.js"></script>
 
 <script src="/../assets/js/notify/bootstrap-notify.min.js"></script>
@@ -490,7 +483,7 @@
             text: '{{ session('success') }}',
             icon: 'success',
         }).then(() => {
-            window.location.href = '/admin/announcement'; // Redirect after clicking OK
+            window.location.href = '/admin/announcement'; 
         });
     @endif
 </script>

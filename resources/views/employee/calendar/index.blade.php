@@ -96,9 +96,9 @@
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -192,7 +192,7 @@
                                 <option value="Missed Compliences">Missed Compliences</option>
                                
                               </select>
-                            <!-- <input type="text" class="form-control" id="event-title" name="event-title" required> -->
+                           
                         </div>
                        
                         
@@ -215,9 +215,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="event-details-modal-label">Event Details</h5>
-                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> -->
+                
             </div>
             <div class="modal-body">
                 <!-- Event details will be displayed here -->
@@ -229,14 +227,14 @@
     </div>
 </div>
 <script>
-    // Wait for the document to be fully loaded
+   
     document.addEventListener('DOMContentLoaded', function () {
-        // Find the "Close" button with the "reload" class
+        
         var reloadButton = document.querySelector('.modal-footer .reload');
 
-        // Add a click event listener to the button
+       
         reloadButton.addEventListener('click', function () {
-            // Reload the page
+            
             location.reload();
         });
     });
@@ -272,15 +270,15 @@
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            // ... other FullCalendar options ...
+            
 
-            events: {!! json_encode($calendarEvents) !!}, // Use the PHP array as the event source
+            events: {!! json_encode($calendarEvents) !!}, 
 
             eventRender: function (info) {
                 var event = info.event;
                 var backgroundColor = '';
 
-                // Check the event title and set the background color accordingly
+                
                 switch (event.title) {
                     case 'General Compliances':
                         backgroundColor = 'green';
@@ -291,50 +289,50 @@
                     case 'Missed Compliances':
                         backgroundColor = 'lightcoral';
                         break;
-                    // Add more cases for other event titles if needed
+                    
                 }
 
-                // Apply the background color to the event
+                
                 event.setProp('backgroundColor', backgroundColor);
             },
 
             eventClick: function (info) {
-                // Display event details in a popup
+               
                 var event = info.event;
                 var eventDetails = "Title: " + event.title + "<br>" +
                     "Start: " + event.start.toLocaleDateString() + "<br>" +
                     "Description: " + event.extendedProps.description;
 
-                // Use Bootstrap's Modal to display the popup
+                
                 $('#event-details-modal .modal-body').html(eventDetails);
                 $('#event-details-modal').modal('show');
             },
         });
 
-        // Get the client selection dropdown
+        
         var clientSelect = document.getElementById('clientSelect');
 
-        // Add an event listener to the client selection dropdown
+        
         clientSelect.addEventListener('change', function () {
             var selectedClientId = this.value;
             if (selectedClientId) {
-                // Filter events based on the selected client
+               
                 var filteredEvents = {!! json_encode($calendarEvents) !!}.filter(function (event) {
                     return event.client_id == selectedClientId;
                 });
-                // Set the filtered events as the calendar's event source
+                
                 calendar.removeAllEvents();
                 calendar.addEventSource(filteredEvents);
             } else {
-                // If no client is selected, reset the calendar to show all events
+                
                 calendar.removeAllEvents();
                 calendar.addEventSource({!! json_encode($calendarEvents) !!});
             }
-            // Render the calendar
+            
             calendar.render();
         });
 
-        // Trigger the change event on page load to filter events based on the default selection
+        
         var defaultSelectedClientId = clientSelect.value;
         if (defaultSelectedClientId) {
             var changeEvent = new Event('change');

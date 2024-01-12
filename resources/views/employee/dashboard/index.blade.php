@@ -108,9 +108,9 @@
                       </div>
                       <style>
     .announcement-list {
-        max-height: 150px; /* Adjust the height as needed */
+        max-height: 150px; 
         overflow-y: auto;
-        border: 1px solid #ccc; /* Add a border for aesthetics */
+        border: 1px solid #ccc; 
         padding: 5px;
     }
 </style>
@@ -159,9 +159,7 @@
           <div class="container-fluid">
             <div class="page-title">
               <div class="row">
-              <!-- <div class="col-sm-12">
-                    <div class="alert alert-danger">You have missed and important financial compliance. Click here to Know more  <span style="float:right">&times;</span></div>
-              </div> -->
+              
                 <div class="col-sm-6">
                   <h3>Good evening, {{$user->name}}!👋</h3>
                   @php
@@ -171,19 +169,15 @@
 
     @foreach ($results as $result)
         @if ($result->date == $currentDate && ($result->timespent < 480 || is_null($result->timespent)))
-        <!--<div class="alertdata">-->
-        <!--    <div class="alert alert-danger">-->
-        <!--        Reminder for Filing Timesheet for your Client: {{ $result->client_name }}-->
-        <!--    </div>-->
-        <!--    </div>-->
+       
           <script>
         var alertData = @json($results);
         
-        // Wait for the document to be ready
+      
         $(document).ready(function () {
             alertData.forEach(function (result) {
                 if (result.date === '{{$currentDate}}' && (result.timespent < 480 || result.timespent === null)) {
-                    // Show a SweetAlert2 popup
+                   
                     Swal.fire({
                         title: 'Reminder',
                         text: `Reminder for Filing Timesheet for your Client: ${result.client_name}`,

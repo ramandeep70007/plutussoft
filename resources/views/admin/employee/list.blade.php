@@ -42,9 +42,7 @@
 
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> -->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
 
@@ -240,14 +238,14 @@
 
                                         </div>
                                         <script>
-                                            // Calculate today's date
+                                            
                                             const today = new Date();
                                             const todayFormatted = today.getFullYear() + "-" + (today.getMonth() + 1).toString().padStart(2, '0') + "-" + today.getDate().toString().padStart(2, '0');
 
-                                            // Initialize Flatpickr for Tenure Start Date
+                                            
                                             flatpickr("#joining_date", {
-                                                dateFormat: "Y-m-d", // Set the date format to match the server-side format
-                                               // Set the minimum selectable date to today
+                                                dateFormat: "Y-m-d", 
+                                               
                                             });
 
                                             
@@ -318,7 +316,7 @@
                                         <td> {{$emp->aadhar_number_employee}}</td>
                                         <td>
                 @if($emp->profile_picture)
-                    <!--<img src="{{ asset('/' . $emp->profile_picture) }}" class="text-center" style="height: 100px; border-radius: 50%;">-->
+                    
                     <br>
                     <a href="{{ asset('/' . $emp->profile_picture) }}" download> <i class="fas fa-download"></i></a>
                 @else
@@ -463,7 +461,7 @@
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fa fa-download"></i> Download As CSV', // Custom HTML content
+                text: '<i class="fa fa-download"></i> Download As CSV', 
             }
         ]
     });
@@ -476,10 +474,10 @@
 <script>
     
 
-    // Initialize Flatpickr for Joining Date
+   
     flatpickr("#joining_date", {
         dateFormat: "Y-m-d",
-         // Prevent selecting future dates
+         
     });
 </script>
                                 </div>
@@ -498,19 +496,7 @@
                                                         <label for="clientSelect">Select Clients:</label><br>
                                                 <div class="scrollable-container" id="clientSelect">
 
-                                                   {{-- 
-<!--                                                   <input type="text" id="clientSearch" class="form-control" placeholder="Search for clients"><br>-->
-<!--                                                    <div id="matchingContainer"></div>-->
-<!--<div id="nonMatchingContainer"></div>-->
 
-<!--                                                    @foreach($clients as $client)-->
-<!--                                                        <label>-->
-<!--                                                            <input type="checkbox" name="client_id[]" value="{{ $client->user_id }}" class="client-checkbox">-->
-<!--                                                            <span class="clientcolor">{{ $client->name }}</span>-->
-<!--                                                        </label><br>-->
-<!--                                                    @endforeach-->
-
---}}
 <select name="client_id[]" class="client-select" multiple="multiple">
     @foreach($clients as $client)
         <option value="{{ $client->user_id }}">{{ $client->name }}</option>
@@ -524,58 +510,7 @@
         });
     });
 </script>                                           </div>
-{{--
-<!--<script>-->
-<!--    const clientSearchInput = document.getElementById('clientSearch');-->
-<!--    const clientCheckboxes = document.querySelectorAll('.client-checkbox');-->
-<!--    const clientLabels = Array.from(clientCheckboxes, checkbox => checkbox.closest('label'));-->
-<!--    const matchingContainer = document.getElementById('matchingContainer');-->
-<!--    const nonMatchingContainer = document.getElementById('nonMatchingContainer');-->
-<!--    const selectedCheckboxes = {};-->
 
-<!--    clientCheckboxes.forEach((checkbox, index) => {-->
-<!--        checkbox.addEventListener('change', () => {-->
-<!--            const value = checkbox.value;-->
-<!--            selectedCheckboxes[value] = checkbox.checked;-->
-<!--            updateDisplay();-->
-<!--        });-->
-<!--    });-->
-
-<!--    clientSearchInput.addEventListener('input', () => {-->
-<!--        updateDisplay();-->
-<!--    });-->
-
-<!--    function updateDisplay() {-->
-<!--        const searchQuery = clientSearchInput.value.trim().toLowerCase();-->
-
-        matchingContainer.innerHTML = ''; // Clear previous matching elements
-        nonMatchingContainer.innerHTML = ''; // Clear previous non-matching elements
-
-<!--        clientLabels.forEach((label, index) => {-->
-<!--            const clientName = clientCheckboxes[index].nextElementSibling.textContent.toLowerCase();-->
-<!--            const isVisible = clientName.includes(searchQuery) || selectedCheckboxes[clientCheckboxes[index].value];-->
-
-<!--            if (isVisible) {-->
-<!--                matchingContainer.appendChild(label.cloneNode(true));-->
-<!--            } else {-->
-<!--                nonMatchingContainer.appendChild(label.cloneNode(true));-->
-<!--            }-->
-
-<!--            label.style.display = isVisible ? 'block' : 'none';-->
-<!--        });-->
-
-        // Remove white space for hidden elements
-<!--        clientLabels.forEach(label => {-->
-<!--            if (label.style.display === 'none') {-->
-<!--                label.style.marginBottom = '0';-->
-<!--            }-->
-<!--        });-->
-<!--    }-->
-
-    // Initialize the display
-<!--    updateDisplay();-->
-<!--</script>-->
---}}
 
 
 
@@ -605,9 +540,9 @@
                              <script>
                                 $(document).ready(function() {
                                 $('#assignClientModal').on('show.bs.modal', function (event) {
-                                    var button = $(event.relatedTarget); // Button that triggered the modal
-                                    var employeeId = button.data('employee-id'); // Extract employee ID from data attribute
-                                    $('#employeeIdInput').val(employeeId); // Set the employee ID in the hidden input field
+                                    var button = $(event.relatedTarget); 
+                                    var employeeId = button.data('employee-id'); 
+                                    $('#employeeIdInput').val(employeeId); 
                                 });
                                 });
                             </script>
@@ -662,7 +597,7 @@
             },
             {
                 extend: 'csvHtml5',
-                text: '<i class="fa fa-download"></i> Download As CSV', // Custom HTML content
+                text: '<i class="fa fa-download"></i> Download As CSV', 
             }
         ]
     });
@@ -684,9 +619,7 @@
         @include('admin.includes.footer');
     </div>
 </div>
-<!-- latest jquery-->
-<!-- <script src="/../assets/js/jquery-3.6.0.min.js"></script> -->
-<!-- Bootstrap js-->
+
 <script src="/../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
 <script src="/../assets/js/icons/feather-icon/feather.min.js"></script>
@@ -697,8 +630,7 @@
 <!-- Sidebar jquery-->
 <script src="/../assets/js/config.js"></script>
 <script src="/../assets/js/sidebar-menu.js"></script>
-<!-- <script src="/../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="/../assets/js/datatable/datatables/datatable.custom.js"></script> -->
+
 <script src="/../assets/js/tooltip-init.js"></script>
 
 <script src="/../assets/js/notify/bootstrap-notify.min.js"></script>
@@ -731,16 +663,16 @@
     </div>
 @endif
 <script>
-    // Check if there's a message in the session (set by the controller)
+    
     var message = "{{ Session::get('message') }}";
 
-    // Display SweetAlert popup if a message is available
+   
     if (message) {
         Swal.fire({
-            icon: message.includes('successfully') ? 'success' : 'error', // Use 'success' or 'error' icon based on the message content
+            icon: message.includes('successfully') ? 'success' : 'error', 
             title: message,
             showConfirmButton: false,
-            timer: 2000 // Set the popup to close after 2 seconds (adjust as needed)
+            timer: 2000 
         });
     }
 </script>
@@ -768,10 +700,10 @@ a.dt-button.buttons-excel.buttons-html5 {
 }
 
 .scrollable-container {
-    max-height: 150px; /* Set the maximum height you want */
+    max-height: 150px; 
     overflow-y: auto;
-    border: 1px solid #ccc; /* Add a border for a cleaner look */
-    padding: 5px; /* Add some padding for spacing */
+    border: 1px solid #ccc; 
+    padding: 5px; 
 }
 span.clientcolor {
     color: grey;
